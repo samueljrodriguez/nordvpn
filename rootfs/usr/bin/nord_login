@@ -21,8 +21,8 @@ done
 [[ -z "${TOKEN}" ]] && [[ -f "${TOKENFILE}" ]] && TOKEN="$(head -n 1 "${TOKENFILE}")"
 nordvpn logout --persist-token > /dev/null
 
-if [[ -n ${TOKEN} ]]; then
-  nordvpn login --token "${TOKEN}" || {
+if [[ -n ${URL} ]]; then
+  nordvpn login --callback "${URL}" || {
     echo "Invalid token."
     exit 1
   }
